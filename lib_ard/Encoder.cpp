@@ -14,7 +14,7 @@ namespace lib_ard
 		_valIndietro[2] = 3;
 		_valIndietro[3] = 1;
 		
-		_spPerc=0;
+		_numPassi=0;
 		
 		
 		_lastStep=Encoder::read();
@@ -36,14 +36,14 @@ namespace lib_ard
 		if (valCor == _valAvanti[_lastStep])		//confronta il valore corrente con l'ordine stabilito nell'array
 		{
 			_lastStep=valCor;
-			_spPerc++;
+			_numPassi++;
 			return 1;
 		}
 			
 		else if (valCor == _valIndietro[_lastStep])
 		{
 			_lastStep=valCor;
-			_spPerc--;
+			_numPassi--;
 			return -1;
 		}	
 		
@@ -51,8 +51,14 @@ namespace lib_ard
 	}
 	
 	
-	long int Encoder::getSpace() const
+	long int Encoder::getSteps() const
 	{
-		return _spPerc;
+		return _numPassi;
+	}
+	
+	
+	void Encoder::resetSteps() 
+	{
+		_numPassi=0;
 	}
 }

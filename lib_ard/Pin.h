@@ -4,8 +4,7 @@
 #include "Arduino.h"
 #include "PinType.h"
 
-//in generale è buona regola aggiungere le #ifndef negli header 
-//per evitare inclusioni ricorsive o multiple
+
 namespace lib_ard
 {
   class Pin
@@ -14,15 +13,18 @@ namespace lib_ard
         unsigned short   _number;
 		
 		protected:
+			
+			/*funzione di appoggio usata da input e output
+			 pins per chiamare le read di basso livello*/
 		  unsigned short int read (PinType tipoPin) const;
 		
     public:
-		//ho aggiunto explicit per evitare la conversione implicita tra short e Pin
 	
-    	Pin(const unsigned short &number);		//explicit potrebbe funzionare diversamente se non si usa c++11
+    	Pin(const unsigned short &number);	
      
+			/*restituisce il numero del pin hardware di arduino*/     
 			unsigned short int getNumber() const;
   };
 }
 
-#endif //LIB_ARD_PIN_H
+#endif
