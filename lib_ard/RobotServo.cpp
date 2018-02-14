@@ -11,10 +11,6 @@ namespace lib_ard
 		_potEff=potEff;
 	}
 	
-	void RobotServo::setPotDes(signed short potDes)
-	{
-		_potDes=potDes;
-	} 
 	
 	void RobotServo::aziona()
 	{
@@ -28,13 +24,18 @@ namespace lib_ard
 		else 
 		{
 			Servo::writeMicroseconds(1500-5*_potEff);
-			Serial.println(1500-5*_potEff);
 		}
 	}
 	
-	
+
 	void RobotServo::inizializza()
 	{
 		attach(_pinServo.getNumber());
+	}
+
+
+	int RobotServo::getPotEff()
+	{
+		return _potEff;
 	}
 }

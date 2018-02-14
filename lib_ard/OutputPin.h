@@ -13,10 +13,17 @@ namespace lib_ard
 		public:
 			OutputPin (const unsigned short &number, PinType tipoPin);
 			
-			void write (unsigned short val) const;	//write chiama digital o analog in base al tipo del pin
+			/*scrive sul pin hardware di arduino, 
+				in un pin digitale il parametro val può assumere i valori LOW/HIGH
+				in uno analogico può assumere un valore tra 0 e 255*/
+			void write (unsigned short val) const;	
 			
+			/*restituisce il valore logico del pin:
+			un pin digitale può restituire LOW/HIGH,
+			un pin output analogico restituisce valori da 0 a 255*/ 
 			unsigned short read () const;
 			
+			//restituisce il tipo di pin (DIGITAL/ANALOG)
 			PinType getType() const;
 			
 			~OutputPin();

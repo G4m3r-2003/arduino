@@ -13,7 +13,11 @@ namespace lib_ard
 		public:
 			DigitalLed(OutputPin &pinLed);
 			
+			/*accende il led, è adattata in modo da funzionare anche se il led è stato collegato
+				ad un pin analogico*/
 			void turnOn() const;
+			
+			/*spegne il led, funziona sia con pin analogici che digitali*/
 			void turnOff() const;	
 	};
 }
