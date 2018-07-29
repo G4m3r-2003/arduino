@@ -31,7 +31,7 @@ namespace lib_ard
 				nel momento in cui è azionato*/
 			void setPotEff(signed short potEff);
 
-			int getPotEff();
+			signed short getPotEff() const;
 			
 			/*muove il servo dando la potenza impostata in _potEff*/
 			void aziona ();		

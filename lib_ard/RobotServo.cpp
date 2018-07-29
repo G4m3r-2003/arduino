@@ -17,12 +17,14 @@ namespace lib_ard
 		if(_tipoServo==DIRETTO)
 		{
 			
+			//Serial.println(_potEff);
 			Servo::writeMicroseconds(1500+5*_potEff);
 			
 		}
 		
 		else 
 		{
+			//Serial.println(_potEff);
 			Servo::writeMicroseconds(1500-5*_potEff);
 		}
 	}
@@ -34,7 +36,7 @@ namespace lib_ard
 	}
 
 
-	int RobotServo::getPotEff()
+	signed short RobotServo::getPotEff() const
 	{
 		return _potEff;
 	}
